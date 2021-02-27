@@ -43,13 +43,6 @@ class App extends Component {
         }.bind(this));
     }
 
-    onClickListItem(movie){
-        this.setState({currentMovie:movie}, function(){
-            this.applyVideoToCurrentMovie();
-            this.setRecommendation();
-        })
-    }
-
     onClickSearch(searchText){
         if(searchText){
             axios.get(`${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${searchText}`).then(function(response){
@@ -67,12 +60,20 @@ class App extends Component {
         }
     }
 
+    onClickListItem(movie){
+        this.setState({currentMovie:movie}, function(){
+            this.applyVideoToCurrentMovie();
+            this.setRecommendation();
+        })
+    }
+
     setRecommendation() {
         axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}/recommendations?${API_KEY}&language=fr`).then(function(response){
-            this.setState({movieList:response.data.results.slice(0,5), currentMovie:response.data.results[0]}, function(){
+            this.setState({movieList:response.data.results.slice(0,5)}, function(){
                 this.applyVideoToCurrentMovie();
             })
         }.bind(this));
+
     }
 
     render() {

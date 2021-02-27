@@ -83,10 +83,49 @@ class App extends Component {
                 return <VideoList movieList={this.state.movieList} callback={this.onClickListItem.bind(this)}/>
             }
         }
-        return (<div>
-        <div className="search_bar">
-            <SearchBar callback={this.onClickSearch.bind(this)}/>
-        </div>
+        return (<div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-dark shadow">
+            <a className="navbar-brand" href="#">
+                <img id="netflix" src="src\img\1200px-Logo_Netflix.png" alt="netflix" width="100rem" />
+            </a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                        <a className="nav-link disabled" href="#">Accueil <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link disabled" href="#">Séries</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link disabled" href="#">Films</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link disabled" href="#">Nouveautés les plus regardées</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link disabled" href="#">Ma liste</a>
+                    </li>
+                </ul>
+                <div className="row d-flex align-items-center">
+                    <i className="fas fa-search submit" id="sub"></i>
+                    <SearchBar callback={this.onClickSearch.bind(this)}/>
+                    <p className="my-auto ml-3">DIRECT</p>
+                    <p className="my-auto ml-3">JEUNESSE</p>
+                    <img className="ml-3" src="src\img\cadeau.png" alt="" width="30px" />
+                    <img className="ml-3" src="src\img\cloche.png" alt="" width="30px" />
+                    <img
+                    className="ml-3"
+                    src="src\img\Screenshot_2020-10-15 NetflixBojack.png"
+                    alt=""
+                    width="40px"
+                    />
+                    <img className="ml-3" src="src\img\developper.png" alt="" width="20px" />
+                </div>
+            </div>
+        </nav>
         <div className="container">
             <div className="row">
                 <div className="col">
@@ -103,7 +142,7 @@ class App extends Component {
             </div>
         </div>
         <div className="container">
-                <h3>Si vous aimez {this.state.currentMovie.title}, peut-être que ces films vous intéresseront... </h3>
+                <h3>Si vous aimez <strong>{this.state.currentMovie.title}</strong>, peut-être que ces films vous intéresseront... </h3>
                 {renderVideoList()}
         </div>
         </div>)

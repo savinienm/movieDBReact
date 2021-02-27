@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body {
     background-color: rgb(30, 30, 30);
     color: white;
@@ -36,6 +42,24 @@ h6 {
     font-weight: bold;
 }
 
+nav {
+    position: fixed !important;
+    width: 100% !important;
+    z-index: 500 !important;
+    background-color: black !important;
+    height: 10vh;
+}
+
+.nav-link {
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+}
+
+#netflix {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+}
+
 .search_bar {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -58,4 +82,11 @@ h6 {
 .title_list_item {
     padding-top: 3rem;
     text-align: center;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }

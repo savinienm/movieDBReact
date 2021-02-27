@@ -10,6 +10,7 @@ const API_END_POINT = "https://api.themoviedb.org/3/"
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&apprend_to_response=images"
 const API_KEY = "api_key=153bac550dbfc9bda1b2f5ef2f99a808"
 const SEARCH_URL = "search/movie?language=fr&include_adult=false"
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500/'
 
 class App extends Component {
     constructor(props){
@@ -86,14 +87,24 @@ class App extends Component {
         <div className="search_bar">
             <SearchBar callback={this.onClickSearch.bind(this)}/>
         </div>
-        <div className="row">
-            <div className="col-md-8">
-                <Video videoId={this.state.currentMovie.videoId}/>
-                <VideoDetail title={this.state.currentMovie.title} description={this.state.currentMovie.overview}/>
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <Video videoId={this.state.currentMovie.videoId}/>
+                </div>
             </div>
-            <div className="col-md-4">
+            <div className="row d-flex align-items-center justify-content-between my-3">
+                <div className="col col-md-8">
+                    <VideoDetail title={this.state.currentMovie.title} vote={this.state.currentMovie.vote_average} count={this.state.currentMovie.vote_count} description={this.state.currentMovie.overview} date={this.state.currentMovie.release_date}/>
+                </div>
+                <div className="col col-md-4 d-flex align-items-center justify-content-end">
+                    <img className="media-object img-rounded mb-auto" height="300px" src={`${IMAGE_BASE_URL}${this.state.currentMovie.poster_path}`}/>
+                </div>
+            </div>
+        </div>
+        <div className="container">
+                <h3>Si vous aimez {this.state.currentMovie.title}, peut-être que ces films vous intéresseront... </h3>
                 {renderVideoList()}
-            </div>
         </div>
         </div>)
     }

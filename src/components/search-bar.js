@@ -17,7 +17,7 @@ class SearchBar extends Component {
             <div className="col-md-8 input-group">
                 <input onKeyUp={this.handleChange.bind(this)} type="text" className="form-control input-lg" placeholder="Rechercher un film..." />
                 <span className="input-group-btn">
-                    <button className="btn btn-primary" onClick={this.handleChange.bind(this)}>Go</button>
+                    <button className="btn btn-danger" onClick={this.handleChange.bind(this)}>Go</button>
                 </span>
             </div>
         </div>

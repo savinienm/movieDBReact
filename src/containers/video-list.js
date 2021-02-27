@@ -4,15 +4,13 @@ import VideoListItem from '../components/video-list-item'
 const VideoList = (props) => {
     const {movieList} = props;
     return (
-        <div>
-            <ul>
+            <div className="row">
                 {
                 movieList.map(movie => {
                 return <VideoListItem key={movie.id} movie={movie} callback={receiveCallback}/>
                 })
                 }
-            </ul>
-        </div>
+            </div>
     )
     function receiveCallback(movie){
         props.callback(movie);

@@ -9,16 +9,10 @@ const VideoListItem = (props) => {
     // et de supprimer le props de props.movie ci-dessous
     return (
         // On met pas de () après handleOnClick pour pas que react lance la fonction directement au lancement de la page sans qu'on lui demande
-        <li className="list-group-item" onClick={handleOnClick}>
-            <div className="media">
-                <div className="media-left">
-                    <img className="media-object img-rounded" width="100px" src={`${IMAGE_BASE_URL}${movie.poster_path}`}/>
-                </div>
-                <div className="media-body">
-                    <h5 className="title_list_item">{movie.title}</h5>
-                </div>
+            <div className="movie col shadow p-3 m-3 rounded" onClick={handleOnClick}>
+                <img className="media-object img-rounded mb-auto" width="150px" src={`${IMAGE_BASE_URL}${movie.poster_path}`}/>
+                <h2 className="text-center mt-3">{movie.title}</h2>
             </div>
-        </li>
         )
 
     function handleOnClick(){
